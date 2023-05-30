@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   parsing.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: yalounic <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: yalounic <yalounic@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/13 10:49:54 by ylounici          #+#    #+#             */
-/*   Updated: 2023/05/04 01:21:02 by yalounic         ###   ########.fr       */
+/*   Updated: 2023/05/23 17:51:45 by yalounic         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -106,8 +106,7 @@ char	**map_read(int fd, t_game *all)
 	char		*tmp;
 
 	i = 0;
-	str = get_next_line(fd);
-	if (str == NULL)
+	if ((str = get_next_line(fd)) == NULL)
 	{
 		printf("Error\n");
 		exit (0);
