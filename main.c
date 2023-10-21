@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: yalounic <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: yalounic <yalounic@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/20 11:35:27 by ylounici          #+#    #+#             */
-/*   Updated: 2023/05/02 03:32:10 by yalounic         ###   ########.fr       */
+/*   Updated: 2023/10/20 13:07:47 by yalounic         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 int	finito(int i)
 {
 	(void) i;
-	printf("Error\nTu es finito.\n");
+	ft_printf("Error\nTu es finito.\n");
 	exit (0);
 }
 

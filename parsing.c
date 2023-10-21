@@ -6,7 +6,7 @@
 /*   By: yalounic <yalounic@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/13 10:49:54 by ylounici          #+#    #+#             */
-/*   Updated: 2023/05/23 17:51:45 by yalounic         ###   ########.fr       */
+/*   Updated: 2023/10/16 11:34:39 by yalounic         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,7 +64,7 @@ int	ft_check_first(char *str, t_game *all)
 			finito(i);
 	}
 	save = i;
-	all->map.lengh = save;
+	all->map.lenght = save;
 	ft_check_btw(str, i, save, all);
 	return (0);
 }
@@ -107,10 +107,7 @@ char	**map_read(int fd, t_game *all)
 
 	i = 0;
 	if ((str = get_next_line(fd)) == NULL)
-	{
-		printf("Error\n");
-		exit (0);
-	}
+		finito(i);
 	tmp = NULL;
 	while (str != NULL)
 	{

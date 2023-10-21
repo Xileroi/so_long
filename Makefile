@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: yalounic <marvin@42.fr>                    +#+  +:+       +#+         #
+#    By: yalounic <yalounic@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/06/05 01:01:26 by ylounici          #+#    #+#              #
-#    Updated: 2023/05/02 02:04:38 by yalounic         ###   ########.fr        #
+#    Updated: 2023/07/05 10:59:44 by yalounic         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -23,6 +23,7 @@ SRCS	=	get_next_line.c \
 			deplacement.c \
 			calloc.c \
 			map_name.c \
+			mapable.c
 
 OBJS	= ${SRCS:.c=.o}
 

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   mlx_ini_sprites.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ylounici <ylounici@42.fr>                  +#+  +:+       +#+        */
+/*   By: yalounic <yalounic@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/05 01:04:27 by ylounici          #+#    #+#             */
-/*   Updated: 2022/06/05 16:04:02 by ylounici         ###   ########.fr       */
+/*   Updated: 2023/10/16 08:35:16 by yalounic         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,15 +15,15 @@
 void	ft_ini_sprites(t_game *all)
 {
 	all->img.ground = mlx_xpm_file_to_image(all->mlx,
-			"./sprites/ground.xpm", &all->map.lengh, &all->map.height);
+			"./sprites/ground.xpm", &all->map.lenght, &all->map.height);
 	all->img.wall = mlx_xpm_file_to_image(all->mlx,
-			"./sprites/wall.xpm", &all->map.lengh, &all->map.height);
+			"./sprites/wall.xpm", &all->map.lenght, &all->map.height);
 	all->img.exit = mlx_xpm_file_to_image(all->mlx,
-			"./sprites/exit.xpm", &all->map.lengh, &all->map.height);
+			"./sprites/exit.xpm", &all->map.lenght, &all->map.height);
 	all->img.coin = mlx_xpm_file_to_image(all->mlx,
-			"./sprites/coin.xpm", &all->map.lengh, &all->map.height);
+			"./sprites/coin.xpm", &all->map.lenght, &all->map.height);
 	all->img.player = mlx_xpm_file_to_image(all->mlx,
-			"./sprites/player.xpm", &all->map.lengh, &all->map.height);
+			"./sprites/player.xpm", &all->map.lenght, &all->map.height);
 }
 
 void	ini_variable(t_game *all)
@@ -48,6 +48,6 @@ void	backslash_n(t_game *all)
 void	ini_mlx(t_game *all)
 {
 	all->mlx = mlx_init();
-	all->win = mlx_new_window(all->mlx, all->map.lengh * TILE,
+	all->win = mlx_new_window(all->mlx, all->map.lenght * TILE,
 			all->map.height * TILE, "so_long");
 }

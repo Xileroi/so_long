@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   so_long.h                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: yalounic <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: yalounic <yalounic@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/17 09:48:10 by ylounici          #+#    #+#             */
-/*   Updated: 2023/05/02 02:13:56 by yalounic         ###   ########.fr       */
+/*   Updated: 2023/10/16 07:02:26 by yalounic         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,7 +62,7 @@ typedef struct s_cord_v{
 
 typedef struct s_outline
 {
-	int		lengh;
+	int		lenght;
 	int		height;
 	char	**map;
 }t_outline;
@@ -146,6 +146,7 @@ void	ft_update(int col, int line, t_game *all);
 int		deplacement(int keycode, t_game *all);
 int		ft_nlen(int c);
 char	*ft_itoa(int n);
+int	ft_parse_map(char **str, t_game *all);
 
 
 #endif
