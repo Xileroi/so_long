@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   deplacement.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: yalounic <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: yalounic <yalounic@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/05 01:05:57 by ylounici          #+#    #+#             */
-/*   Updated: 2023/04/29 03:27:04 by yalounic         ###   ########.fr       */
+/*   Updated: 2023/12/14 15:07:53 by yalounic         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,7 @@ void	kill_player(t_game *all)
 {
 	printf("GG WP, tu as fini en %d pas ! Essai de faire mieux poto.\n", all->steps);
 	all->map.map[all->pos.p_player.x][all->pos.p_player.y] = '0';
+	
 	ft_graphic(all);
 	exit(0);
 }

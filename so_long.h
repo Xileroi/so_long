@@ -6,7 +6,7 @@
 /*   By: yalounic <yalounic@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/17 09:48:10 by ylounici          #+#    #+#             */
-/*   Updated: 2023/10/16 07:02:26 by yalounic         ###   ########.fr       */
+/*   Updated: 2023/12/27 15:01:18 by yalounic         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -102,6 +102,8 @@ typedef struct s_game
 	t_position	pos;
 	int			end_game;
 	int			key;
+	int			x;
+	int			y;
 }t_game;
 
 char	*get_backup(char *str);
@@ -147,6 +149,7 @@ int		deplacement(int keycode, t_game *all);
 int		ft_nlen(int c);
 char	*ft_itoa(int n);
 int	ft_parse_map(char **str, t_game *all);
+int	map_is_good(t_game *all, char **str);
 
 
 #endif

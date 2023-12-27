@@ -6,7 +6,7 @@
 /*   By: yalounic <yalounic@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/13 10:49:54 by ylounici          #+#    #+#             */
-/*   Updated: 2023/10/16 11:34:39 by yalounic         ###   ########.fr       */
+/*   Updated: 2023/12/27 15:19:52 by yalounic         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -123,6 +123,8 @@ char	**map_read(int fd, t_game *all)
 	while (map[i])
 		i++;
 	free(tmp);
+	ft_parse_map(map, all);
+	/*map_is_good(all, map);*/
 	all->map.map = map;
 	return (map);
 }
