@@ -6,7 +6,7 @@
 /*   By: yalounic <yalounic@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/13 10:49:54 by ylounici          #+#    #+#             */
-/*   Updated: 2023/12/27 15:19:52 by yalounic         ###   ########.fr       */
+/*   Updated: 2024/01/17 23:42:32 by yalounic         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -101,7 +101,7 @@ int	ft_check_dependances(char *str, t_game *all)
 char	**map_read(int fd, t_game *all)
 {
 	int			i;
-	char		**map;
+	char		**mapi;
 	char		*str;
 	char		*tmp;
 
@@ -118,13 +118,13 @@ char	**map_read(int fd, t_game *all)
 	}
 	ft_check_first(tmp, all);
 	ft_check_dependances(tmp, all);
-	map = ft_split(tmp, '\n');
+	mapi = ft_split(tmp, '\n');
 	i = 0;
-	while (map[i])
+	while (mapi[i])
 		i++;
 	free(tmp);
-	ft_parse_map(map, all);
-	/*map_is_good(all, map);*/
-	all->map.map = map;
-	return (map);
+	all->map.map = mapi;
+	all->map.mapi = mapi;
+	ft_parse_map(all);
+	return (all->map.map);
 }
