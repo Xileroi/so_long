@@ -6,75 +6,95 @@
 /*   By: yalounic <yalounic@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/30 16:08:00 by yalounic          #+#    #+#             */
-/*   Updated: 2024/01/17 23:51:56 by yalounic         ###   ########.fr       */
+/*   Updated: 2024/01/18 17:02:17 by yalounic         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long.h"
 
-int	ft_verif(t_game *all, int i, int j)
+int	ft_verif(char **map, int i, int j)
 {
 	int	c;
 	int	p;
 	int	e;
 
-	i = 0;
-	j = 0;
-	while (all->map.mapi[i])
+	while (map[i])
 	{
-		while (all->map.mapi[i][j])
+		while (map[i][j])
 		{
-			if (all->map.mapi[i][j] == 'C')
-				c++;
-			if (all->map.mapi[i][j] == 'E')
-				e++;
-			if (all->map.mapi[i][j] == 'P')
-				p++;
+			if (map[i][j] == 'C')
+				c = 1;
+			if (map[i][j] == 'E')
+				e = 1;
+			if (map[i][j] == 'P')
+				p = 1;
 			j++;
 		}
-		j = 0;
 		i++;
 	}
-	if (c != 0 || e != 0 || p != 0)
+	if (c == 1 || e == 1 || p == 1)
 		finito(i);
 	return (1);
 }
 
-int	ft_run9(t_game *all, int i, int j)
+int ft_run9(char **map, int i, int j)
 {
-    if (all->map.mapi[i][j] == '0' || all->map.mapi[i][j] == 'C' || all->map.mapi[i][j] == 'E')
-        all->map.mapi[i][j] = '9';
-    if (all->map.mapi[i + 1] && (all->map.mapi[i + 1][j] == '0' || all->map.mapi[i + 1][j] == 'C' || all->map.mapi[i + 1][j] == 'E'))
+    if (i < 0 || j < 0 || !map[i] || !map[i][j] || map[i][j] == '9')
+        return (0);
+    if (map[i][j] == '0' || map[i][j] == 'C' || map[i][j] == 'E')
     {
-        i++;
-        ft_run9(all, i, j);
-    }
-    if (i - 1 >= 0 && (all->map.mapi[i - 1][j] == '0' || all->map.mapi[i - 1][j] == 'C' || all->map.mapi[i - 1][j] == 'E'))
-    {
-        i--;
-        ft_run9(all, i, j);
-    }
-    if (all->map.mapi[i][j + 1] == '0' || all->map.mapi[i][j + 1] == 'C' || all->map.mapi[i][j + 1] == 'E')
-    {
-        j++;
-        ft_run9(all, i, j);
-    }
-    if (j - 1 >= 0 && (all->map.mapi[i][j - 1] == '0' || all->map.mapi[i][j - 1] == 'C' || all->map.mapi[i][j - 1] == 'E'))
-    {
-        j--;
-        ft_run9(all, i, j);
+		if (map[i][j] == 'E')
+			map[i][j] = '1';
+		else
+        	map[i][j] = '9';
+        ft_run9(map, i + 1, j);
+        ft_run9(map, i - 1, j);
+        ft_run9(map, i, j + 1);
+        ft_run9(map, i, j - 1);
     }
     return (0);
 }
 
-int	ft_parse_map(t_game *all)
+/*int	ft_run9(char **map, int i, int j)
 {
-	int i = 0;
-	int j = 0;
-
-	while (all->map.mapi[i] && all->map.mapi[i][j] != 'P')
+	if (map[i][j] == '0' || map[i][j] == 'C' || map[i][j] == 'E')
+		map[i][j] = '9';
+	if (map[i + 1] && (map[i + 1][j] == '0'
+		|| map[i + 1][j] == 'C' || map[i + 1][j] == 'E'))
 	{
-		if (all->map.mapi[i][j] == '\0' || all->map.mapi[i][j] == 10)
+		i++;
+		ft_run9(map, i, j);
+	}
+	if (i - 1 >= 0 && (map[i - 1][j] == '0'
+		|| map[i - 1][j] == 'C' || map[i - 1][j] == 'E'))
+	{
+		i--;
+		ft_run9(map, i, j);
+	}
+	if (map[i][j + 1] == '0' || map[i][j + 1] == 'C' || map[i][j + 1] == 'E')
+	{
+		j++;
+		ft_run9(map, i, j);
+	}
+	if (j - 1 >= 0 && (map[i][j - 1] == '0'
+		|| map[i][j - 1] == 'C' || map[i][j - 1] == 'E'))
+	{
+		j--;
+		ft_run9(map, i, j);
+	}
+	return (0);
+}*/
+
+int	ft_parse_map(char **map)
+{
+	int	i;
+	int	j;
+
+	i = 0;
+	j = 0;
+	while (map[i] && map[i][j] != 'P')
+	{
+		if (map[i][j] == '\0' || map[i][j] == 10)
 		{
 			j = 0;
 			i++;
@@ -82,16 +102,13 @@ int	ft_parse_map(t_game *all)
 		else
 			j++;
 	}
-	if (all->map.mapi[i])
+	if (map[i] && map[i][j] == 'P')
 	{
-		all->map.mapi[i][j] = '9';
-		ft_run9(all, i, j);
-		//ft_verif(all, i ,j);
-		if (all->cep.player == 1)
-			return (0);
-		else
-			return (1);
+		map[i][j] = '9';
+		ft_run9(map, i, j);
+		ft_verif(map, 0, 0);
 	}
 	else
-		return (-1);
+		return (0);
+	return (1);
 }

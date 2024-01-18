@@ -6,7 +6,7 @@
 /*   By: yalounic <yalounic@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/17 09:48:10 by ylounici          #+#    #+#             */
-/*   Updated: 2024/01/17 23:43:54 by yalounic         ###   ########.fr       */
+/*   Updated: 2024/01/18 15:15:50 by yalounic         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,7 +65,6 @@ typedef struct s_outline
 	int		lenght;
 	int		height;
 	char	**map;
-	char	**mapi;
 }t_outline;
 
 typedef struct s_depend
@@ -149,6 +148,6 @@ void	ft_update(int col, int line, t_game *all);
 int		deplacement(int keycode, t_game *all);
 int		ft_nlen(int c);
 char	*ft_itoa(int n);
-int	ft_parse_map(t_game *all);
+int	ft_parse_map(char **map);
 
 #endif
