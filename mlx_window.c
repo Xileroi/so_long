@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   mlx_window.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: yalounic <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: yalounic <yalounic@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/05 01:04:13 by ylounici          #+#    #+#             */
-/*   Updated: 2023/04/29 01:53:56 by yalounic         ###   ########.fr       */
+/*   Updated: 2024/01/20 12:20:04 by yalounic         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,6 +27,15 @@ void	wasd(t_game *all)
 	colle_image_player(all);
 }
 
+void	put_gold(t_game *all)
+{
+	char	*str;
+
+	str = ft_itoa(all->cep.coins);
+	mlx_string_put(all->mlx, all->win, 0, 32, 0xFFFFFF00, str);
+	free(str);
+}
+
 void	ft_graphic(t_game *all)
 {
 	ini_variable(all);
@@ -45,17 +54,17 @@ void	ft_graphic(t_game *all)
 		else if (all->map.map[all->var.i][all->var.j] == '0')
 			colle_image_ground(all);
 		else
-		{	
+		{
 			all->var.d_x += TILE;
 			all->var.j++;
 		}
+		put_steps(all);
+		put_gold(all);
 	}
 }
 
 int	ft_refresh(t_game *all)
-{	
+{
 	ft_graphic(all);
-	if (ft_check_wall(all, all->pos.p_player.y, all->pos.p_player.x) == 1)
-		put_steps(all);
 	return (1);
 }

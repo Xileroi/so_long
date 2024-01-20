@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   image.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: yalounic <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: yalounic <yalounic@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/05 01:03:41 by ylounici          #+#    #+#             */
-/*   Updated: 2023/04/29 01:51:06 by yalounic         ###   ########.fr       */
+/*   Updated: 2024/01/20 10:37:27 by yalounic         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,7 +37,7 @@ void	colle_image_player(t_game *all)
 }
 
 void	colle_image_exit(t_game *all)
-{	
+{
 	mlx_put_image_to_window(all->mlx, all->win, all->img.exit, all->var.d_x,
 		all->var.d_y);
 	all->var.d_x += TILE;

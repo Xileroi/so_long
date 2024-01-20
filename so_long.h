@@ -6,7 +6,7 @@
 /*   By: yalounic <yalounic@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/17 09:48:10 by ylounici          #+#    #+#             */
-/*   Updated: 2024/01/18 15:15:50 by yalounic         ###   ########.fr       */
+/*   Updated: 2024/01/20 12:20:00 by yalounic         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,6 +29,7 @@
 # include <stdio.h>
 # include <unistd.h>
 # include <errno.h>
+# include "./ft_printf/ft_printf.h"
 
 typedef struct s_sprites{
 	void	*ground;
@@ -42,7 +43,6 @@ typedef struct s_design{
 	int	player;
 	int	end;
 	int	coin;
-	int	vilain;
 }t_design;
 
 typedef struct s_location{
@@ -111,12 +111,13 @@ char	*gnl_getline(char *str);
 char	*gnl_newfile(int fd, char *save);
 char	*get_next_line(int fd);
 
-size_t	ft_strlen(const char *str);
+size_t	ft_strleni(const char *str);
 char	*ft_strchr(const char *s, int c);
 char	*ft_strjoin(char *s1, char *s2);
 char	**ft_split(const char *s, char c);
 void	*ft_calloc(size_t nmemb, size_t size);
 void	ft_bzero(void *s, size_t n);
+void	put_gold(t_game *all);
 int		ft_check_first(char *str, t_game *all);
 int		ft_check_dependances(char *str, t_game *all);
 char	**map_read(int fd, t_game *all);

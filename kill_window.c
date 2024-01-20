@@ -6,7 +6,7 @@
 /*   By: yalounic <yalounic@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/05 01:05:04 by ylounici          #+#    #+#             */
-/*   Updated: 2024/01/18 15:16:47 by yalounic         ###   ########.fr       */
+/*   Updated: 2024/01/20 10:37:41 by yalounic         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,6 @@ void	free_map(t_game *all)
 		free(all->map.map[i++]);
 	free(all->map.map[i]);
 }
-
 
 int	kill_window(t_game *all)
 {

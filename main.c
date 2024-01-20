@@ -6,7 +6,7 @@
 /*   By: yalounic <yalounic@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/20 11:35:27 by ylounici          #+#    #+#             */
-/*   Updated: 2023/10/30 12:21:20 by yalounic         ###   ########.fr       */
+/*   Updated: 2024/01/20 12:19:55 by yalounic         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 int	finito(int i)
 {
 	(void) i;
-	printf("Error\nTu es finito.\n");
+	ft_printf("Error\nTu es finito.\n");
 	exit (0);
 }
 
@@ -35,7 +35,7 @@ int	main(int argc, char **argv)
 
 	if (argc != 2)
 	{
-		printf("Error\nTrop ou pas assez d'arguments\n");
+		ft_printf("Error\nTrop ou pas assez d'arguments\n");
 		return (0);
 	}
 	ft_check_name(argv[1]);
@@ -44,7 +44,7 @@ int	main(int argc, char **argv)
 		return (0);
 	all.steps = 0;
 	all.key = -1;
-	printf("Nombre de pas : %d\n", all.steps);
+	ft_printf("Nombre de pas : %d\n", all.steps);
 	mlx_key_hook(all.win, deplacement, (void *)&all);
 	mlx_hook(all.win, 17, 0, kill_window, (void *)&all);
 	mlx_loop_hook(all.mlx, ft_refresh, &all);

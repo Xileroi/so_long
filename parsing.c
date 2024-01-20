@@ -6,7 +6,7 @@
 /*   By: yalounic <yalounic@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/13 10:49:54 by ylounici          #+#    #+#             */
-/*   Updated: 2024/01/18 15:34:49 by yalounic         ###   ########.fr       */
+/*   Updated: 2024/01/20 10:43:01 by yalounic         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -106,7 +106,8 @@ char	**map_read(int fd, t_game *all)
 	char		*tmp;
 
 	i = 0;
-	if ((str = get_next_line(fd)) == NULL)
+	str = get_next_line(fd);
+	if (str == NULL)
 		finito(i);
 	tmp = NULL;
 	while (str != NULL)
@@ -123,5 +124,5 @@ char	**map_read(int fd, t_game *all)
 	i = 0;
 	free(tmp);
 	ft_parse_map(mapi);
-	return (mapi);
+	return (all->map.map);
 }

@@ -6,7 +6,7 @@
 /*   By: yalounic <yalounic@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/05 01:05:57 by ylounici          #+#    #+#             */
-/*   Updated: 2023/12/14 15:07:53 by yalounic         ###   ########.fr       */
+/*   Updated: 2024/01/20 12:21:45 by yalounic         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,9 +14,8 @@
 
 void	kill_player(t_game *all)
 {
-	printf("GG WP, tu as fini en %d pas ! Essai de faire mieux poto.\n", all->steps);
+	ft_printf("Tu as fini en %d pas ! Essai de faire mieux.\n", all->steps);
 	all->map.map[all->pos.p_player.x][all->pos.p_player.y] = '0';
-	
 	ft_graphic(all);
 	exit(0);
 }
@@ -55,12 +54,17 @@ void	ft_update(int col, int line, t_game *all)
 	if (valid == 1)
 	{
 		if (all->map.map[line][col] == 'C')
+		{
 			all->cep.coins--;
+			if (all->cep.coins != 0)
+				ft_printf("Il reste %d coffres a trouver !\n", all->cep.coins);
+			if (all->cep.coins == 0)
+				ft_printf("Tu as tous les coffres, prends vite la sortie !\n");
+		}
 		all->map.map[x][y] = '0';
 		all->map.map[line][col] = 'P';
 		all->pos.p_player.x = line;
 		all->pos.p_player.y = col;
-		all->steps++;
 	}
 }
 
@@ -83,8 +87,9 @@ int	deplacement(int keycode, t_game *all)
 		kill_window(all);
 	if (keycode == UP || keycode == DOWN || keycode == LEFT || keycode == RIGHT)
 	{
+		all->steps++;
+		ft_printf("Nombre de pas : %d\n", all->steps);
 		ft_update(col, line, all);
-		printf("Nombre de pas : %d\n", all->steps);
 	}
 	return (1);
 }

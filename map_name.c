@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   map_name.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: yalounic <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: yalounic <yalounic@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/24 14:35:38 by ylounici          #+#    #+#             */
-/*   Updated: 2023/05/02 03:33:10 by yalounic         ###   ########.fr       */
+/*   Updated: 2024/01/20 10:45:51 by yalounic         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,7 +42,7 @@ int	ft_check_name(char *str)
 	str -= 4;
 	if (ft_strncmp(str, ext, 4))
 	{
-		printf("Error\nMauvaise extension.\n");
+		ft_printf("Error\nMauvaise extension.\n");
 		exit(0);
 	}
 	else
