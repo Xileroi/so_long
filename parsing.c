@@ -6,7 +6,7 @@
 /*   By: yalounic <yalounic@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/13 10:49:54 by ylounici          #+#    #+#             */
-/*   Updated: 2024/01/20 10:43:01 by yalounic         ###   ########.fr       */
+/*   Updated: 2024/01/21 12:23:51 by yalounic         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -119,10 +119,10 @@ char	**map_read(int fd, t_game *all)
 	}
 	ft_check_first(tmp, all);
 	ft_check_dependances(tmp, all);
-	mapi = ft_split(tmp, '\n');
 	all->map.map = ft_split(tmp, '\n');
-	i = 0;
+	mapi = ft_split(tmp, '\n');
 	free(tmp);
 	ft_parse_map(mapi);
+	free_mapi(mapi);
 	return (all->map.map);
 }

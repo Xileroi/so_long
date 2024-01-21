@@ -3,54 +3,61 @@
 /*                                                        :::      ::::::::   */
 /*   ft_itoa.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ylounici <ylounici@42.fr>                  +#+  +:+       +#+        */
+/*   By: yalounic <yalounic@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/05 01:05:35 by ylounici          #+#    #+#             */
-/*   Updated: 2022/06/05 01:08:27 by ylounici         ###   ########.fr       */
+/*   Updated: 2024/01/21 11:57:19 by yalounic         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long.h"
 
-int	ft_nlen(int c)
+static int	ft_itoa_size(long nbr)
 {
-	int	i;
+	int		size;
 
-	i = 1;
-	if (c < 0)
-		i++;
-	while (c / 10)
+	size = 1;
+	if (nbr < 0)
+		size++;
+	while (nbr / 10 != 0)
 	{
-		i++;
-		c /= 10;
+		nbr /= 10;
+		size++;
 	}
-	return (i);
+	return (size);
+}
+
+static void	ft_itoa_fill(char *sptr, int *index, long nbr)
+{
+	if (nbr >= 10)
+	{
+		ft_itoa_fill(sptr, index, nbr / 10);
+		ft_itoa_fill(sptr, index, nbr % 10);
+	}
+	else
+	{
+		sptr[*index] = nbr + '0';
+		(*index)++;
+	}
 }
 
 char	*ft_itoa(int n)
 {
-	long long	nb;
-	char		*str;
-	int			posinega;
-	int			len;
+	char	*sptr;
+	int		index;
+	long	nbr;
 
-	nb = n;
-	len = ft_nlen(nb);
-	str = (char *)malloc(len + 1 * sizeof(char));
-	if (!str)
+	nbr = n;
+	sptr = (char *) ft_calloc(ft_itoa_size(nbr) + 1, 1);
+	if (!sptr)
 		return (NULL);
-	posinega = 1;
-	if (n < 0)
+	index = 0;
+	if (nbr < 0)
 	{
-		str[0] = '-';
-		posinega = -1;
+		sptr[index++] = '-';
+		nbr *= -1;
 	}
-	str[len--] = '\0';
-	str[len--] = ((n % 10) * posinega) + '0';
-	while (n / 10)
-	{
-		n /= 10;
-		str[len--] = ((n % 10) * posinega) + '0';
-	}
-	return (str);
+	ft_itoa_fill(sptr, &index, nbr);
+	sptr[index] = 0;
+	return (sptr);
 }

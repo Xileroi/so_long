@@ -6,7 +6,7 @@
 /*   By: yalounic <yalounic@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/17 09:48:10 by ylounici          #+#    #+#             */
-/*   Updated: 2024/01/20 12:20:00 by yalounic         ###   ########.fr       */
+/*   Updated: 2024/01/21 12:26:15 by yalounic         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,63 +31,70 @@
 # include <errno.h>
 # include "./ft_printf/ft_printf.h"
 
-typedef struct s_sprites{
+typedef struct s_sprites
+{
 	void	*ground;
 	void	*wall;
 	void	*exit;
 	void	*coin;
 	void	*player;
-}t_sprites;
+}	t_sprites;
 
-typedef struct s_design{
+typedef struct s_design
+{
 	int	player;
 	int	end;
 	int	coin;
-}t_design;
+}	t_design;
 
-typedef struct s_location{
+typedef struct s_location
+{
 	int	x;
 	int	y;
-}t_location;
+}	t_location;
 
-typedef struct s_cord{
+typedef struct s_cord
+{
 	int	x;
 	int	y;
-}t_cord;
+}	t_cord;
 
-typedef struct s_cord_v{
+typedef struct s_cord_v
+{
 	int	x;
 	int	y;
-}t_cord_v;
+}	t_cord_v;
 
 typedef struct s_outline
 {
 	int		lenght;
 	int		height;
 	char	**map;
-}t_outline;
+}	t_outline;
 
 typedef struct s_depend
 {
 	int	coins;
 	int	exit;
 	int	player;
-}t_depend;
+}	t_depend;
 
-typedef struct s_position{
+typedef struct s_position
+{
 	t_cord		p_player;
 	int			p_end;
 	int			p_coin;
-}t_position;
+}	t_position;
 
-typedef struct s_var{
+typedef struct s_var
+{
 	int	i;
 	int	j;
 	int	v_i;
 	int	v_j;
 	int	d_x;
 	int	d_y;
-}t_var;
+}	t_var;
 
 typedef struct s_game
 {
@@ -104,7 +111,7 @@ typedef struct s_game
 	int			key;
 	int			x;
 	int			y;
-}t_game;
+}	t_game;
 
 char	*get_backup(char *str);
 char	*gnl_getline(char *str);
@@ -147,8 +154,8 @@ void	put_steps(t_game *all);
 int		ft_check_wall(t_game *all, int col, int line);
 void	ft_update(int col, int line, t_game *all);
 int		deplacement(int keycode, t_game *all);
-int		ft_nlen(int c);
 char	*ft_itoa(int n);
-int	ft_parse_map(char **map);
+int		ft_parse_map(char **map);
+void	free_mapi(char **mapi);
 
 #endif
