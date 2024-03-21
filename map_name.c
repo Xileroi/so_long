@@ -6,7 +6,7 @@
 /*   By: yalounic <yalounic@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/24 14:35:38 by ylounici          #+#    #+#             */
-/*   Updated: 2024/01/20 10:45:51 by yalounic         ###   ########.fr       */
+/*   Updated: 2024/01/23 14:34:21 by yalounic         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,17 +26,15 @@ int	ft_strncmp(const char *str1, const char *str2, size_t n)
 	return (0);
 }
 
-int	ft_check_name(char *str)
+int	ft_check_name(char *str, t_game *all)
 {
 	char	*ext;
-	int		i;
 	size_t	base;
 
 	ext = ".ber";
-	i = 1;
 	base = ft_strlen(str);
 	if (base < 5)
-		finito(i);
+		finito(all);
 	while (*str)
 		str++;
 	str -= 4;

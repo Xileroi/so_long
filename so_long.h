@@ -6,7 +6,7 @@
 /*   By: yalounic <yalounic@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/17 09:48:10 by ylounici          #+#    #+#             */
-/*   Updated: 2024/01/21 12:26:15 by yalounic         ###   ########.fr       */
+/*   Updated: 2024/01/28 16:49:49 by yalounic         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -111,13 +111,14 @@ typedef struct s_game
 	int			key;
 	int			x;
 	int			y;
+	int			fd;
 }	t_game;
 
+void	ft_destroy_image(t_game *all);
 char	*get_backup(char *str);
 char	*gnl_getline(char *str);
 char	*gnl_newfile(int fd, char *save);
 char	*get_next_line(int fd);
-
 size_t	ft_strleni(const char *str);
 char	*ft_strchr(const char *s, int c);
 char	*ft_strjoin(char *s1, char *s2);
@@ -127,13 +128,12 @@ void	ft_bzero(void *s, size_t n);
 void	put_gold(t_game *all);
 int		ft_check_first(char *str, t_game *all);
 int		ft_check_dependances(char *str, t_game *all);
-char	**map_read(int fd, t_game *all);
-int		ft_check_last(char *str, int i, int save);
-int		ft_check_name(char *str);
+void	map_read(int fd, t_game *all);
+int		ft_check_last(char *str, int i, int save, t_game *all);
+int		ft_check_name(char *str, t_game *all);
 int		ft_strncmp(const char *str1, const char *str2, size_t n);
 int		ft_check_btw(char *str, int i, int save, t_game *all);
-int		finito(int i);
-
+int		finito(t_game *all);
 void	colle_image_ground(t_game *all);
 int		ini_so_long(int fd, t_game *all);
 void	wasd(t_game *all);
@@ -155,7 +155,10 @@ int		ft_check_wall(t_game *all, int col, int line);
 void	ft_update(int col, int line, t_game *all);
 int		deplacement(int keycode, t_game *all);
 char	*ft_itoa(int n);
-int		ft_parse_map(char **map);
+int		ft_parse_map(char **map, t_game *all);
 void	free_mapi(char **mapi);
+int		kill_windowi(t_game *all);
+int		finitoi(t_game *all, char *str);
+int		finitovoid(t_game *all);
 
 #endif

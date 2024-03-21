@@ -6,7 +6,7 @@
 /*   By: yalounic <yalounic@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/05 01:04:13 by ylounici          #+#    #+#             */
-/*   Updated: 2024/01/20 12:20:04 by yalounic         ###   ########.fr       */
+/*   Updated: 2024/01/25 16:49:48 by yalounic         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,8 +58,6 @@ void	ft_graphic(t_game *all)
 			all->var.d_x += TILE;
 			all->var.j++;
 		}
-		put_steps(all);
-		put_gold(all);
 	}
 }
 

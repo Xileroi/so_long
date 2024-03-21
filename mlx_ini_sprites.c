@@ -6,7 +6,7 @@
 /*   By: yalounic <yalounic@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/05 01:04:27 by ylounici          #+#    #+#             */
-/*   Updated: 2024/01/20 12:12:05 by yalounic         ###   ########.fr       */
+/*   Updated: 2024/01/23 14:13:43 by yalounic         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,6 +24,15 @@ void	ft_ini_sprites(t_game *all)
 			"./sprites/coin.xpm", &all->map.lenght, &all->map.height);
 	all->img.player = mlx_xpm_file_to_image(all->mlx,
 			"./sprites/player.xpm", &all->map.lenght, &all->map.height);
+}
+
+void	ft_destroy_image(t_game *all)
+{
+	mlx_destroy_image(all->mlx, all->img.ground);
+	mlx_destroy_image(all->mlx, all->img.wall);
+	mlx_destroy_image(all->mlx, all->img.exit);
+	mlx_destroy_image(all->mlx, all->img.coin);
+	mlx_destroy_image(all->mlx, all->img.player);
 }
 
 void	ini_variable(t_game *all)

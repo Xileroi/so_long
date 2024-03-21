@@ -6,7 +6,7 @@
 /*   By: yalounic <yalounic@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/05 01:05:35 by ylounici          #+#    #+#             */
-/*   Updated: 2024/01/21 11:57:19 by yalounic         ###   ########.fr       */
+/*   Updated: 2024/01/25 16:48:22 by yalounic         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 static int	ft_itoa_size(long nbr)
 {
-	int		size;
+	int	size;
 
 	size = 1;
 	if (nbr < 0)
@@ -29,6 +29,8 @@ static int	ft_itoa_size(long nbr)
 
 static void	ft_itoa_fill(char *sptr, int *index, long nbr)
 {
+	if (nbr < 0)
+		nbr = -nbr;
 	if (nbr >= 10)
 	{
 		ft_itoa_fill(sptr, index, nbr / 10);
@@ -48,16 +50,15 @@ char	*ft_itoa(int n)
 	long	nbr;
 
 	nbr = n;
-	sptr = (char *) ft_calloc(ft_itoa_size(nbr) + 1, 1);
+	sptr = (char *)ft_calloc(ft_itoa_size(nbr) + 1, sizeof(char));
 	if (!sptr)
 		return (NULL);
 	index = 0;
 	if (nbr < 0)
 	{
 		sptr[index++] = '-';
-		nbr *= -1;
 	}
 	ft_itoa_fill(sptr, &index, nbr);
-	sptr[index] = 0;
+	sptr[index] = '\0';
 	return (sptr);
 }

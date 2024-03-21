@@ -6,7 +6,7 @@
 /*   By: yalounic <yalounic@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/05 01:05:57 by ylounici          #+#    #+#             */
-/*   Updated: 2024/01/21 12:21:13 by yalounic         ###   ########.fr       */
+/*   Updated: 2024/01/28 16:35:43 by yalounic         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ void	kill_player(t_game *all)
 	ft_printf("Tu as fini en %d pas ! Essai de faire mieux.\n", all->steps);
 	all->map.map[all->pos.p_player.x][all->pos.p_player.y] = '0';
 	ft_graphic(all);
-	exit(0);
+	kill_window(all);
 }
 
 void	put_steps(t_game *all)

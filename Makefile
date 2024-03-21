@@ -6,7 +6,7 @@
 #    By: yalounic <yalounic@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/06/05 01:01:26 by ylounici          #+#    #+#              #
-#    Updated: 2024/01/22 15:36:01 by yalounic         ###   ########.fr        #
+#    Updated: 2024/01/24 15:03:13 by yalounic         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -31,7 +31,7 @@ NAME	= 	so_long
 
 CC		= gcc
 
-CFLAGS = -Werror -Wall -Wextra -I./minilibx
+CFLAGS = -Werror -Wall -Wextra -g -I./minilibx
 	
 LDFLAGS	= -L./minilibx -I./minilibx -lmlx -lX11 -lXext
 
